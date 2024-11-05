@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #4c33a5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.light-bulb {
+    width: 100px;
+    height: 100px;
+    border: 5px solid #000;
+    border-radius: 50%;
+    margin: 20px auto;
+    transition: background-color 0.3s; /* Ajoute une transition pour le changement de couleur */
+}
+
+.button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.on-btn {
+    background-color: #4CAF50; /* Vert */
+}
+
+.off-btn {
+    background-color: #f44336; /* Rouge */
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.off-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.off-btn:hover {
+    background-color: #c82333;
+}

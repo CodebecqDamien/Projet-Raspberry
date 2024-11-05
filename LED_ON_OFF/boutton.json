@@ -1,0 +1,12 @@
+[
+    {
+        "status": "allumé",
+        "message": "Lumière allumée",
+        "image": "💡"
+    },
+    {
+        "status": "éteint",
+        "message": "Lumière éteinte",
+        "image": "🔌"
+    }
+ ]
