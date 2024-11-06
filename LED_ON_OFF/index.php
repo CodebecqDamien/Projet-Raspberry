@@ -68,12 +68,12 @@
 
         if ($action == 'on') {
             // Exécuter le script Python pour allumer la lumière
-            $command = 'sudo -u www-data /var/www/html/led_on.py';
+            $command = 'sudo -u www-data /var/www/html/Projet-Raspberry/LED_ON_OFF/led_on.py';
             $output = shell_exec($command);
 
         } elseif ($action == 'off') {
             // Exécuter le script Python pour éteindre la lumière
-            $command = 'sudo -u www-data /var/www/html/led_off.py';
+            $command = 'sudo -u www-data /var/www/html/Projet-Raspberry/LED_ON_OFF/led_off.py';
             $output = shell_exec($command);
 
         } else {
