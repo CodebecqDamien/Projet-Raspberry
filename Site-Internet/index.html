@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Domotique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="script.js"></script>
+    <div class="dashboard">
+        <h1>Contrôle Domotique</h1>
+        
+        <div class="devices">
+            <!-- Device 1 -->
+            <div class="device-card">
+                <h2>Salon</h2>
+                <div class="led" id="led1"></div>
+                <div class="device-controls">
+                    <button onclick="led_on('led1')">Allumer</button>
+                    <button onclick="led_off('led1')">Éteindre</button>
+                </div>
+            </div>
+
+            <!-- Device 2 -->
+            <div class="device-card">
+                <h2>Chambre</h2>
+                <div class="led" id="led2"></div>
+                <div class="device-controls">
+                    <button onclick="led_on('led2')">Allumer</button>
+                    <button onclick="led_off('led2')">Éteindre</button>
+                </div>
+            </div>
+
+            <!-- Device 3 -->
+            <div class="device-card">
+                <h2>Cuisine</h2>
+                <div class="led" id="led3"></div>
+                <div class="device-controls">
+                    <button onclick="led_on('led3')">Allumer</button>
+                    <button onclick="led_off('led3')">Éteindre</button>
+                </div>
+            </div>
+
+            <!-- Device 4 -->
+            <div class="device-card">
+                <h2>Garage</h2>
+                <div class="led" id="led4"></div>
+                <div class="device-controls">
+                    <button onclick="led_on('led4')">Allumer</button>
+                    <button onclick="led_off('led4')">Éteindre</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
