@@ -4,54 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Domotique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="script.js"></script>
+    <nav class="navbar">
+        <h1>Domotique</h1>
+    </nav>
+    <button class="theme-btn" onclick="toggleTheme()">
+        <i class="fas fa-sun" id="theme-icon"></i>
+    </button>    
     <div class="dashboard">
-        <h1>Contrôle Domotique</h1>
-        
+        <h2>Contrôle Des Lumières</h2>
         <div class="devices">
-            <!-- Device 1 -->
+            <!-- Device Cards 1-->
             <div class="device-card">
-                <h2>Salon</h2>
+                <i class="fas fa-couch"></i>
+                <h3>Salon</h3>
                 <div class="led" id="led1"></div>
                 <div class="device-controls">
-                    <button onclick="led_on('led1')">Allumer</button>
-                    <button onclick="led_off('led1')">Éteindre</button>
+                    <label class="switch">
+                        <input type="checkbox" onchange="toggleLed('led1', this)">
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
-
-            <!-- Device 2 -->
+            <!-- Device Cards 2-->
             <div class="device-card">
-                <h2>Chambre</h2>
+                <i class="fas fa-bed"></i>
+                <h3>Chambre</h3>
                 <div class="led" id="led2"></div>
                 <div class="device-controls">
-                    <button onclick="led_on('led2')">Allumer</button>
-                    <button onclick="led_off('led2')">Éteindre</button>
+                    <label class="switch">
+                        <input type="checkbox" onchange="toggleLed('led2', this)">
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
-
-            <!-- Device 3 -->
+            <!-- Device Cards 3-->
             <div class="device-card">
-                <h2>Cuisine</h2>
+                <i class="fas fa-bath"></i>
+                <h3>Salle de bain</h3>
                 <div class="led" id="led3"></div>
                 <div class="device-controls">
-                    <button onclick="led_on('led3')">Allumer</button>
-                    <button onclick="led_off('led3')">Éteindre</button>
+                    <label class="switch">
+                        <input type="checkbox" onchange="toggleLed('led3', this)">
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
-
-            <!-- Device 4 -->
+            <!-- Device Cards 4-->
             <div class="device-card">
-                <h2>Garage</h2>
+                <i class="fas fa-utensils"></i>
+                <h3>Cuisine</h3>
                 <div class="led" id="led4"></div>
                 <div class="device-controls">
-                    <button onclick="led_on('led4')">Allumer</button>
-                    <button onclick="led_off('led4')">Éteindre</button>
+                    <label class="switch">
+                        <input type="checkbox" onchange="toggleLed('led4', this)">
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
         </div>
     </div>
+    <div id="notification-container"></div>
+    <button class="help-btn" onclick="openModal()">&#63;</button>
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3>Aide</h3>
+            <p>Voici comment contrôler vos appareils :</p>
+            <ul>
+                <li>Basculez l'interrupteur pour allumer/éteindre une lumière.</li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>

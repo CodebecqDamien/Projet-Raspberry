@@ -1,98 +1,363 @@
-/* Global styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Global Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f5;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6d5dfc, #42a5f5, #6dd5ed, #3fa9f5, #8e44ad, #f39c12);
+    background-size: 400% 400%;
+    animation: gradient-animation 20s infinite;
+    color: #fff;
     margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-.dashboard {
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 50%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
     text-align: center;
-    width: 90%;
-    max-width: 1200px;
+    color: #fff;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
+/* Dashboard */
+.dashboard {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
     font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #333;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Device Cards Grid */
 .devices {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 20px;
 }
 
+/* Device Card Styles */
 .device-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
     text-align: center;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;  /* Centrer les éléments verticalement */
-    align-items: center;  /* Centrer les éléments horizontalement */
-    height: 250px;  /* Hauteur fixe pour chaque carte */
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .device-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.device-card h2 {
-    margin-bottom: 20px;
+.device-card i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #42a5f5;
+}
+
+.device-card h3 {
     font-size: 1.8rem;
-    color: #555;
+    margin-bottom: 10px;
 }
 
-.device-controls {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* LED styles */
+/* LED Indicator */
 .led {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    background-color: #ccc; /* Par défaut, éteinte */
-    margin-bottom: 20px;  /* Espacement sous la LED */
-    transition: background-color 0.3s ease;
+    margin: 20px auto;
+    background-color: #555;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .led.on {
-    background-color: #4caf50; /* Allumé (vert) */
+    background-color: #4caf50;
+    box-shadow: 0 0 15px 5px #4caf50;
+    animation: pulse 1.5s infinite;
 }
 
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 15px 5px #4caf50; }
+    50% { box-shadow: 0 0 25px 10px #4caf50; }
+}
+
+
 .led.off {
-    background-color: #f44336; /* Éteinte (rouge) */
+    background-color: #f44336;
+    box-shadow: 0 0 20px #f44336;
+}
+
+/* Switch Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    border: 2px solid #42a5f5;
+    border-radius: 25px;
+    transition: border-color 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.switch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.switch input:checked + .slider {
+    border: 2px solid #4caf50;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 25px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .device-card {
+        padding: 15px;
+    }
+
+    .device-card i {
+        font-size: 2.5rem;
+    }
+}
+
+/* Notification Styles */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 1000;
+}
+
+.notification {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fade-in-out 5s ease forwards;
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+.dark-mode {
+    background: #121212;
+    color: #fff;
+}
+
+.dark-mode .device-card {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+/* Color Mode Button */
+.btn-color-mode {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: #42a5f5;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.btn-color-mode:hover {
+    background: #2196f3;
+    animation: pulse 1s infinite;
+}
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Style pour le bouton d'aide */
+.help-btn {
+    background-color: #42a5f5;
+    color: white;
+    font-size: 20px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.help-btn:hover {
+    background-color: #2196f3;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.help-btn:focus {
+    outline: none;
+}
+
+.help-btn:active {
+    background-color: #1e88e5;
+}
+
+/* Style pour le bouton de changement de thème */
+.theme-btn {
+    background-color: #f5f5f5;  /* Couleur claire par défaut */
+    color: #333;  /* Couleur sombre pour l'icône */
+    font-size: 24px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Effet sur le bouton lors du survol */
+.theme-btn:hover {
+    background-color: #ddd;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles pour le mode sombre */
+body.dark-mode {
+    background-color: #121212; /* Fond sombre */
+    color: #e0e0e0;  /* Texte clair */
+}
+
+/* Rendre le bouton plus visible en mode sombre */
+body.dark-mode .theme-btn {
+    background-color: #333;  /* Couleur foncée pour le bouton */
+    color: #fff;  /* Texte clair sur bouton foncé */
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);  /* Légère ombre blanche */
+}
+
+/* Icône du mode clair */
+#theme-icon.sun {
+    display: block;
+}
+
+/* Icône du mode sombre */
+#theme-icon.moon {
+    display: none;
+}
+
+/* Quand on est en mode sombre, on change l'icône */
+body.dark-mode #theme-icon.sun {
+    display: none;
+}
+
+body.dark-mode #theme-icon.moon {
+    display: block;
+}
+
+/* Animation pour le bouton */
+.theme-btn i {
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+/* Ajouter un effet de survol à l'icône */
+.theme-btn:hover i {
+    transform: rotate(180deg);
 }
