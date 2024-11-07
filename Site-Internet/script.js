@@ -9,7 +9,7 @@ function toggleLed(ledId, switchElement) {
     led.classList.toggle("off", !isChecked);
 
     // Afficher une notification personnalisée
-    showCustomNotification(`La lumière du ${deviceName} a été ${action}.`);
+    showCustomNotification(`La lumière de ${deviceName} a été ${action}.`);
 
     // Envoyer la commande au serveur
     fetch('http://172.16.16.8:1880/controle-led', {
