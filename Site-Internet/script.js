@@ -9,13 +9,13 @@ function toggleLed(ledId, switchElement) {
     led.classList.toggle("off", !isChecked);
 
     // Afficher une notification personnalisée
-    showCustomNotification(`La lumière de ${deviceName} a été ${action}.`);
+    showCustomNotification(`La lumière de ${deviceName} à été ${action}.`);
 
     // Envoyer la commande au serveur
-    fetch('http://172.16.16.8:1880/controle-led', {
-        method: 'POST',
+    fetch(`http://172.16.16.8:1880/led${ledId.substring(3)}?state=${isChecked}`, {
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ led: ledId, action: isChecked ? 'on' : 'off' })
+      
     }).then(response => response.json())
       .then(data => console.log('Réponse du serveur:', data))
       .catch(error => console.error('Erreur:', error));
@@ -33,7 +33,7 @@ function showCustomNotification(message) {
     // Supprimer la notification après 5 secondes
     setTimeout(() => {
         notification.remove();
-    }, 5000);
+    }, 3000);
 }
 
 function toggleTheme() {

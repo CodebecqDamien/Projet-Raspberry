@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #6d5dfc, #42a5f5, #6dd5ed, #3fa9f5, #8e44ad, #f39c12);
     background-size: 400% 400%;
-    animation: gradient-animation 20s infinite;
+    animation: gradient-animation 10s infinite;
     color: #fff;
     margin: 0;
     overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -19,17 +19,17 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
     text-align: center;
     color: #fff;
     font-size: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 /* Dashboard */
 .dashboard {
-    padding: 20px;
+    padding: 15px;
     text-align: center;
 }
 
@@ -50,7 +50,7 @@ h2 {
 .device-card {
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(255, 5, 180, 0.15);
     border-radius: 15px;
     padding: 20px;
     text-align: center;
